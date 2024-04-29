@@ -8,6 +8,10 @@ const AC = () => {
   useEffect(() => {
     fetch('http://192.168.1.163:8093/admin/ac')
     .then(response => response.json())
+
+
+
+    
   
   },[])
 
