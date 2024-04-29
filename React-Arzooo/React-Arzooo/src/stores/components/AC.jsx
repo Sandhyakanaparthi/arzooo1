@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { acData } from "../data/ac";
 import { Link } from "react-router-dom";
 
 const AC = () => {
   const firstFiveImages = acData.slice(0, 5);
+
+  useEffect(() => {
+    fetch('http://192.168.1.163:8093/admin/ac')
+    .then(response => response.json())
+  
+  },[])
 
   return (
     <>

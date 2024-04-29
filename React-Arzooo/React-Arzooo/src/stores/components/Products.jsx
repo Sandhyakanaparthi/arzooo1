@@ -10,6 +10,7 @@ import Kitchen from "./Kitchen";
 
 const Products = () => {
   return (
+    <>
     <div>
       <Mobiles />
       <Computers />
@@ -18,6 +19,7 @@ const Products = () => {
       <AC />
       <Kitchen />
     </div>
+    </>
   );
 };
 

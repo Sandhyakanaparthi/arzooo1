@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCaretDown, faCaretSquareDown, faChevronCircleDown, faLocationDot, faPhone, faSearch, faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icons';
 import { useCart } from "../context/CartContext";
 
 const Navbar = () => {
@@ -57,7 +57,7 @@ const Navbar = () => {
                 </div>
                 <div className="dropdown-content">
                   <a href="#" />
-                  <a href="/">Logout</a>
+                  <a href="#" />
                 </div>
               </div>
             </li>
@@ -71,7 +71,7 @@ const Navbar = () => {
                 </div>
                 <div className="dropdown-content">
                   <a href="#" />
-                  <a href="/">Logout</a>
+                  <a href="#" />
                 </div>
               </div>
             </li>
@@ -85,7 +85,7 @@ const Navbar = () => {
                 </div>
                 <div className="dropdown-content">
                   <a href="#" />
-                  <a href="/">Logout</a>
+                  <a href="#" />
                 </div>
               </div>
             </li>
@@ -99,7 +99,7 @@ const Navbar = () => {
                 </div>
                 <div className="dropdown-content">
                   <a href="#" />
-                  <a href="/">Logout</a>
+                  <a href="#" />
                 </div>
               </div>
             </li>
@@ -113,7 +113,7 @@ const Navbar = () => {
                 </div>
                 <div className="dropdown-content">
                   <a href="#" />
-                  <a href="/">Logout</a>
+                  <a href="#" />
                 </div>
               </div>
             </li>
@@ -127,7 +127,7 @@ const Navbar = () => {
                 </div>
                 <div className="dropdown-content">
                   <a href="#" />
-                  <a href="/">Logout</a>
+                  <a href="#" />
                 </div>
               </div>
             </li>
@@ -141,7 +141,7 @@ const Navbar = () => {
                 </div>
                 <div className="dropdown-content">
                   <a href="#" />
-                  <a href="/">Logout</a>
+                  <a href="#" />
                 </div>
               </div>
             </li>
@@ -155,7 +155,7 @@ const Navbar = () => {
                 </div>
                 <div className="dropdown-content">
                   <a href="#" />
-                  <a href="/">Logout</a>
+                  <a href="#" />
                 </div>
               </div>
             </li>

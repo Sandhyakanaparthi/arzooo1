@@ -1,6 +1,6 @@
 import React from "react";
 import { acData } from "../data/ac";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInr, faRupee } from '@fortawesome/free-solid-svg-icons';
@@ -16,6 +16,7 @@ const AcSingle = () => {
   return (
     <>
       <Navbar />
+      <div className="body1">
       <div className="ind-section">
         <div className="ind-image">
           <img src={product.image} alt="" />
@@ -37,8 +38,11 @@ const AcSingle = () => {
             <p>{product.description}</p>
           </div>
           <button onClick={() => addToCart(product)}>Add to Cart</button><br />
+          <Link to="/acnow">
           <button onClick={() => addToCart(product)}>Buy Now</button>
+          </Link>
         </div>
+      </div>
       </div>
     </>
   );

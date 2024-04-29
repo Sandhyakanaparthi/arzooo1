@@ -38,14 +38,6 @@ const Anav = () => {
             </div>
           </div>
         </div>
-        <Link to='/cart'>
-          <div className="cart">
-            <FontAwesomeIcon icon={faBell} style={{ fontSize: 25 }} />
-            <span class="num">
-              {cartItems.length}
-            </span>
-          </div>
-        </Link>
       </div>
     </div >
   );

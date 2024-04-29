@@ -1,6 +1,6 @@
 import React from "react";
 import { tvData } from "../data/tv";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInr, faRupee } from '@fortawesome/free-solid-svg-icons';

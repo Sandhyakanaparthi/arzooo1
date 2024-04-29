@@ -1,26 +1,14 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../../../src/App.css';
 
- function Login() {
+ function Forgot() {
     const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState('');
     const navigate = useNavigate();
 
-    const togglePasswordVisibility = () => {
-        setShowPassword(!showPassword);
-    };
-
     const handleEmailChange = (event) => {
         setEmail(event.target.value);
-    };
-
-    const handlePasswordChange = (event) => {
-        setPassword(event.target.value);
     };
 
     const handleSubmit = async (event) => {
@@ -31,25 +19,25 @@ import '../../../src/App.css';
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ email, password }),
+                body: JSON.stringify({ email }),
             });
 
             if (response.ok) {
-                navigate('/home');
+                navigate('/Login');
             } else {
                 const data = await response.json();
                 setError(data.result);
             }
         } catch (error) {
             console.error('Login error:', error.message);
-            setError('Invalid email or password');
+            setError('Invalid email');
         }
     };
 
     return (
         <div className="container10">
             <img className='img1' src='/logo.png' alt="Arzooo" />
-            <h1 className='para'>Login</h1>
+            <h1 className='para'>Forgot Password</h1>
             <form onSubmit={(e) => handleSubmit(e)} >
                 <label>Mail Id *</label>
                 <input
@@ -60,29 +48,12 @@ import '../../../src/App.css';
                     value={email}
                     onChange={handleEmailChange}
                 />
-                <label>Password *</label>
-                <div className="password-input">
-                    <input
-                        type={showPassword ? "text" : "password"}
-                        className='box'
-                        placeholder="Enter Your Password"
-                        required
-                        value={password}
-                        onChange={handlePasswordChange}
-                    />
-                    <FontAwesomeIcon className='fas1'
-                        icon={showPassword ? faEye : faEyeSlash}
-                        onClick={togglePasswordVisibility}
-                        style={{ cursor: "pointer" }}
-                    />
-                </div>
-                <button className='button10' type='submit'>Login</button>
+                <button className='button10' type='submit'>Submit</button>
                 <div className='error-container'>
                 {error && <p className="error">{error}</p>}
                 </div>
-                <p className="para"><a href="/forgot">Forgot Password?</a></p>
             </form>
         </div>
     );
 }
-export default Login;
+export default Forgot;

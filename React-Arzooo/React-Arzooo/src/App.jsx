@@ -24,9 +24,11 @@ import WatchSingle from "./stores/singles/WatchSingle";
 import FridgeSingle from "./stores/singles/FridgeSingle";
 import LoginPage from "./stores/components/Login";
 import Register from "./stores/components/Register";
+import Forgot from "./stores/components/Forgot";
 import EditPage from "./stores/components/Edit";
 import Acbuy from "./stores/buy/Acbuy";
 import Anav from "./stores/components/Anav";
+import Acnow from "./stores/now/Acnow"
 
 const App = () => {
 
@@ -34,11 +36,12 @@ const App = () => {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<LoginPage />} />
+        <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/forgot" element={<Forgot />} />
         <Route path="/edit" element={<EditPage />} />
         <Route path="/admin" element={<Admin />} />
-        <Route path="/home" element={<LandingPage />} />
+        <Route path="/" element={<LandingPage />} />
         <Route path="/kitchen" element={<KitchenPage />} />
         <Route path="/mobiles" element={<MobilePage />} />
         <Route path="/computers" element={<CompPage />} />
@@ -58,6 +61,7 @@ const App = () => {
         <Route path="/fridge/:id" element={<FridgeSingle />} />
         <Route path="/acbuy/:id" element={<Acbuy />} />
         <Route path="/Anav" element={<Anav />} />
+        <Route path="/acnow" element={<Acnow />} />
       </Routes>
     </div>
   );
