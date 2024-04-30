@@ -5,15 +5,13 @@ import { Link } from "react-router-dom";
 const AC = () => {
   const firstFiveImages = acData.slice(0, 5);
 
-  useEffect(() => {
-    fetch('http://192.168.1.163:8093/admin/ac')
-    .then(response => response.json())
+  // useEffect(() => {
+  //   fetch('http://192.168.1.163:8093/admin/ac')
+  //   .then(response => response.json())
 
+  // },[])
 
-
-    
-  
-  },[])
+  // const data = response.map()
 
   return (
     <>

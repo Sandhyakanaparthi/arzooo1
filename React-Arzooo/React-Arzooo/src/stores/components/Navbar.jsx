@@ -51,13 +51,24 @@ const Navbar = () => {
         <ul>
           <Link to="/mobiles" className="custom-link">
             <li>
+              {/* <img src="/assets/NewMobile/1.png" className="navimg" alt="" /> */}
               <div className="dropdown">
                 <div className="dropdownbtn">
                   Mobiles
                 </div>
                 <div className="dropdown-content">
-                  <a href="#" />
-                  <a href="#" />
+                  <a href="#" >iPhone</a>
+                  <a href="#" >Samsung</a>
+                  <a href="#" >Google</a>
+                  <a href="#" >OnePlus</a>
+                  <a href="#" >Xiaomi</a>
+                  <a href="#" >Sony</a>
+                  <a href="#" >LG</a>
+                  <a href="#" >Motorola</a>
+                  <a href="#" >Huawei</a>
+                  <a href="#" >Oppo</a>
+                  <a href="#" >Nokia</a>
+                  <a href="#" >Realme</a>
                 </div>
               </div>
             </li>
@@ -70,50 +81,14 @@ const Navbar = () => {
                   Computers
                 </div>
                 <div className="dropdown-content">
-                  <a href="#" />
-                  <a href="#" />
-                </div>
-              </div>
-            </li>
-          </Link>
-
-          <Link to="/watch" className="custom-link">
-            <li>
-              <div className="dropdown">
-                <div className="dropdownbtn">
-                  Watches
-                </div>
-                <div className="dropdown-content">
-                  <a href="#" />
-                  <a href="#" />
-                </div>
-              </div>
-            </li>
-          </Link>
-
-          <Link to="/furniture" className="custom-link">
-            <li>
-              <div className="dropdown">
-                <div className="dropdownbtn">
-                  Furniture
-                </div>
-                <div className="dropdown-content">
-                  <a href="#" />
-                  <a href="#" />
-                </div>
-              </div>
-            </li>
-          </Link>
-
-          <Link to="/kitchen" className="custom-link">
-            <li>
-              <div className="dropdown">
-                <div className="dropdownbtn">
-                  Kitchen
-                </div>
-                <div className="dropdown-content">
-                  <a href="#" />
-                  <a href="#" />
+                <a href="#" >Dell</a>
+                  <a href="#" >HP</a>
+                  <a href="#" >Apple</a>
+                  <a href="#" >Lenovo</a>
+                  <a href="#" >Acer</a>
+                  <a href="#" >Microsoft</a>
+                  <a href="#" >Asus</a>
+                  <a href="#" >Alienware</a>
                 </div>
               </div>
             </li>
@@ -126,8 +101,15 @@ const Navbar = () => {
                   Fridge
                 </div>
                 <div className="dropdown-content">
-                  <a href="#" />
-                  <a href="#" />
+                <a href="#" >LG</a>
+                  <a href="#" >Samsung</a>
+                  <a href="#" >Whirlpool</a>
+                  <a href="#" >Fridgidaire</a>
+                  <a href="#" >KitchenAid</a>
+                  <a href="#" >GE</a>
+                  <a href="#" >Maytag</a>
+                  <a href="#" >Bosch</a>
+                  <a href="#" >Haire</a>
                 </div>
               </div>
             </li>
@@ -154,8 +136,18 @@ const Navbar = () => {
                   Ac's
                 </div>
                 <div className="dropdown-content">
-                  <a href="#" />
-                  <a href="#" />
+                <a href="#" >LG</a>
+                  <a href="#" >Daikin</a>
+                  <a href="#" >Carrier</a>
+                  <a href="#" >HoneyWill</a>
+                  <a href="#" >Whirlpool</a>
+                  <a href="#" >Nest</a>
+                  <a href="#" >Mitsubishi</a>
+                  <a href="#" >Fridgidaire</a>
+                  <a href="#" >Lennox</a>
+                  <a href="#" >Parasonic</a>
+                  <a href="#" >Haire</a>
+                  <a href="#" >Trane</a>
                 </div>
               </div>
             </li>

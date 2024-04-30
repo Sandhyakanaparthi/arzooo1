@@ -36,12 +36,12 @@ const App = () => {
   return (
     <div>
       <Routes>
-        <Route path="/login" element={<LoginPage />} />
+        <Route path="/" element={<LoginPage />} />
         <Route path="/register" element={<Register />} />
         <Route path="/forgot" element={<Forgot />} />
         <Route path="/edit" element={<EditPage />} />
         <Route path="/admin" element={<Admin />} />
-        <Route path="/" element={<LandingPage />} />
+        <Route path="/home" element={<LandingPage />} />
         <Route path="/kitchen" element={<KitchenPage />} />
         <Route path="/mobiles" element={<MobilePage />} />
         <Route path="/computers" element={<CompPage />} />
