@@ -6,18 +6,18 @@ import { faIndianRupeeSign, faLocation, faMapMarker, faTruck } from '@fortawesom
 function Acnow() {
   const [quantity, setQuantity] = useState(1);
   const [totalFee, setTotalFee] = useState(0);
-  const [products, setProducts] = useState([]);
+  const [apiData, setApiData] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchProducts = async () => {
+    const fetchapiData = async () => {
       try {
-        const response = await fetch('http://192.168.1.163:8093/getProducts');
+        const response = await fetch(`http://192.168.1.163:8093/getProducts`);
         if (!response.ok) {
           throw new Error('Failed to fetch products');
         }
         const data = await response.json();
-        setProducts(data);
+        setApiData(data);
         setLoading(false);
       } catch (error) {
         console.error('Error fetching products:', error);
@@ -25,11 +25,11 @@ function Acnow() {
       }
     };
 
-    fetchProducts();
+    fetchapiData();
   }, []);
 
   const calculateTotalFee = () => {
-    const product = products.find(product => product.id === 1); 
+    const product = apiData.find(product => product.id === 1); 
     if (product) {
       const productPrice = product.price;
       return productPrice * quantity;
@@ -37,9 +37,12 @@ function Acnow() {
     return 0;
   }
 
+  useEffect(() => {
+    setTotalFee(calculateTotalFee());
+  }, [quantity, apiData]);
+
   const handleQuantityChange = (newQuantity) => {
     setQuantity(newQuantity);
-    setTotalFee(calculateTotalFee());
   }
 
   const handleIncrement = () => {
@@ -54,10 +57,6 @@ function Acnow() {
     }
   }
 
-  useState(() => {
-    setTotalFee(calculateTotalFee());
-  }, []);
-
   if (loading) {
     return <p>Loading...</p>;
   }
@@ -71,15 +70,17 @@ function Acnow() {
             <FontAwesomeIcon icon={faTruck} style={{ padding: '0px 10px 0px 0px' }} />
             Estimated Delivery</p>
           <hr />
-          {products.map(product => (
-            <div key={product.id}>
+          {apiData.map(item => (
+            <div key={item.id}>
               <div className="col-3">
-                <img className="img8" src={product.image} alt={product.name} />
+              <img className='image2' src={`data:image/jpeg;base64,${item.image_url}`} alt={item.productName} />
+
               </div>
               <div className="col-4">
-                <h4>{product.ProductName}</h4>
-                <p><FontAwesomeIcon icon={faIndianRupeeSign} />{product.price}</p>
-                <p>Size: {product.size}</p>
+                <p>
+                {item.ProductName}
+                </p>
+                <p><FontAwesomeIcon icon={faIndianRupeeSign} />{item.price}</p>
                 <p style={{ marginBottom: '10px' }}>Quantity: {quantity}</p>
               </div>
             </div>

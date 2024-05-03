@@ -13,11 +13,11 @@ const Products = () => {
   return (
     <>
     <div>
-      <Mobiles />
+      {/* <Mobiles />
       <Computers />
-      <Fridge />
+      <Fridge /> */}
       <AC />
-      <Tv />
+      {/* <Tv /> */}
     </div>
     </>
   );

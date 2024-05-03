@@ -1,16 +1,27 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icons';
 import { useCart } from "../context/CartContext";
 
 const Navbar = () => {
+  const { cartItems } = useCart();
+  const [apiData, setApiData] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState(null);
 
-  const { cartItems } = useCart()
+  useEffect(() => {
+    fetch('http://192.168.1.163:8093/getCategories')
+      .then(response => response.json())
+      .then(data => setApiData(data))
+      .catch(error => console.error("Error fetching data:", error));
+  }, []);
+
+  const handleCategoryClick = (category) => {
+    setSelectedCategory(category);
+  };
 
   return (
     <div className="navbar-section">
-
       <div className="navSection">
         <Link to='/' className="custom-link">
           <div className="title">
@@ -41,7 +52,7 @@ const Navbar = () => {
         <Link to='/cart'>
           <div className="cart">
             <FontAwesomeIcon icon={faShoppingCart} style={{ fontSize: 25 }} />
-            <span class="num">
+            <span className="num">
               {cartItems.length}
             </span>
           </div>
@@ -49,112 +60,27 @@ const Navbar = () => {
       </div>
       <div className="subMenu">
         <ul>
-          <Link to="/mobiles" className="custom-link">
-            <li>
-              {/* <img src="/assets/NewMobile/1.png" className="navimg" alt="" /> */}
+          {apiData.map(item => (
+            <li key={item.categoryId}>
               <div className="dropdown">
-                <div className="dropdownbtn">
-                  Mobiles
+                <div className="dropdownbtn" onClick={() => handleCategoryClick(item)}>
+                  {item.categoryName}
                 </div>
                 <div className="dropdown-content">
-                  <a href="#" >iPhone</a>
-                  <a href="#" >Samsung</a>
-                  <a href="#" >Google</a>
-                  <a href="#" >OnePlus</a>
-                  <a href="#" >Xiaomi</a>
-                  <a href="#" >Sony</a>
-                  <a href="#" >LG</a>
-                  <a href="#" >Motorola</a>
-                  <a href="#" >Huawei</a>
-                  <a href="#" >Oppo</a>
-                  <a href="#" >Nokia</a>
-                  <a href="#" >Realme</a>
+                  {selectedCategory && selectedCategory.categoryId === item.categoryId && (
+                    item.subCategories.map(subCategory => (
+                      <Link key={subCategory.subCategoryId} to={subCategory.link} className="custom-link">
+                        <div>{subCategory.subCategoryName}</div>
+                      </Link>
+                    ))
+                  )}
                 </div>
               </div>
             </li>
-          </Link>
-
-          <Link to="/computers" className="custom-link">
-            <li>
-              <div className="dropdown">
-                <div className="dropdownbtn">
-                  Computers
-                </div>
-                <div className="dropdown-content">
-                <a href="#" >Dell</a>
-                  <a href="#" >HP</a>
-                  <a href="#" >Apple</a>
-                  <a href="#" >Lenovo</a>
-                  <a href="#" >Acer</a>
-                  <a href="#" >Microsoft</a>
-                  <a href="#" >Asus</a>
-                  <a href="#" >Alienware</a>
-                </div>
-              </div>
-            </li>
-          </Link>
-
-          <Link to="/fridge" className="custom-link">
-            <li>
-              <div className="dropdown">
-                <div className="dropdownbtn">
-                  Fridge
-                </div>
-                <div className="dropdown-content">
-                <a href="#" >LG</a>
-                  <a href="#" >Samsung</a>
-                  <a href="#" >Whirlpool</a>
-                  <a href="#" >Fridgidaire</a>
-                  <a href="#" >KitchenAid</a>
-                  <a href="#" >GE</a>
-                  <a href="#" >Maytag</a>
-                  <a href="#" >Bosch</a>
-                  <a href="#" >Haire</a>
-                </div>
-              </div>
-            </li>
-          </Link>
-
-          <Link to="/tv" className="custom-link">
-            <li>
-              <div className="dropdown">
-                <div className="dropdownbtn">
-                  Tv's
-                </div>
-                <div className="dropdown-content">
-                  <a href="#" />
-                  <a href="#" />
-                </div>
-              </div>
-            </li>
-          </Link>
-
-          <Link to="/ac" className="custom-link">
-            <li>
-              <div className="dropdown">
-                <div className="dropdownbtn">
-                  Ac's
-                </div>
-                <div className="dropdown-content">
-                <a href="#" >LG</a>
-                  <a href="#" >Daikin</a>
-                  <a href="#" >Carrier</a>
-                  <a href="#" >HoneyWill</a>
-                  <a href="#" >Whirlpool</a>
-                  <a href="#" >Nest</a>
-                  <a href="#" >Mitsubishi</a>
-                  <a href="#" >Fridgidaire</a>
-                  <a href="#" >Lennox</a>
-                  <a href="#" >Parasonic</a>
-                  <a href="#" >Haire</a>
-                  <a href="#" >Trane</a>
-                </div>
-              </div>
-            </li>
-          </Link>
+          ))}
         </ul>
       </div>
-    </div >
+    </div>
   );
 };
 

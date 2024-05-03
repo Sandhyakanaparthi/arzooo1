@@ -24,7 +24,7 @@ const AcPage = () => {
   return (
     <>
       <div className="proTitle">
-        <h2>Air Condition</h2>
+        {/* <h2>Air Condition</h2> */}
       </div>
       <div className="proSection">
         {apiData.map((item) => {

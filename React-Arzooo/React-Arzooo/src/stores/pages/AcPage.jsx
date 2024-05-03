@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Footer from '../components/Footer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faIndianRupeeSign } from '@fortawesome/free-solid-svg-icons';
 
 const AcPage = () => {
     const [apiData, setApiData] = useState([]);
+    const navigation = useNavigate();
 
     useEffect(() => {
         fetchData();
@@ -25,6 +26,11 @@ const AcPage = () => {
         }
     }
 
+    const handlingProductId = (productId) => {
+        console.log(productId);
+        navigation("/acsingle", { state: { productId } });
+    }
+
     return (
         <>
             <Navbar />
@@ -33,10 +39,10 @@ const AcPage = () => {
                 <div className='pageSection'>
                     {apiData.length > 0 ? (
                         apiData.map((item) => (
-                            <div key={item.id}>
-                                <Link to={`/ac/${item.id}`}>
+                            <div key={item.productId}>
+                                <Link to="/acsingle" state={{ productId: item.productId }}>
                                     <div className="pageImg">
-                                        <img className='image2' src={`data:image/jpeg;base64,${item.image_url}`} alt={item.productName} />
+                                        <img className='image2' src={`data:image/jpeg;base64,${item.image_url}`} alt={item.productName} onClick={() => handlingProductId(item.productId)} />
                                     </div>
                                 </Link>
                                 <div className="proModel">

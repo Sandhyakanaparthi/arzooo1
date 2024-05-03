@@ -43,7 +43,7 @@ const App = () => {
         <Route path="/ac" element={<AcPage />} />
         <Route path="/mobiles/:id" element={<MobileSingle />} />
         <Route path="/cart" element={<UserCart />} />
-        <Route path="/ac/:id" element={<AcSingle />} />
+        <Route path="/acsingleS" element={<AcSingle />} />
         <Route path="/tv/:id" element={<TvSingle />} />
         <Route path="/computers/:id" element={<ComputerSingle />} />
         <Route path="/fridge/:id" element={<FridgeSingle />} />

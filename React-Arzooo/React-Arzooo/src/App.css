@@ -203,8 +203,8 @@ height: 40px;
 }
 
 .ind-image {
-    width: 500px;
-    height: 500px;
+    width: 200px;
+    height: 200px;
 }
 
 .ind-section {
@@ -411,7 +411,8 @@ ul li {
     width: 10rem;
     background-color: #3c91e6;
     color: white;
-    margin-bottom: 60px;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 .removeBtn:hover {
