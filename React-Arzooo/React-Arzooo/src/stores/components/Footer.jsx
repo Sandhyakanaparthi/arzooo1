@@ -22,23 +22,16 @@ function Footer() {
         <Link to="/computers">
           <p className="prodf"><FontAwesomeIcon icon={faCaretRight} style={{ paddingRight: 20 }} />Computers</p>
         </Link>
+        <Link to="/fridge">
+          <p className="prodf"><FontAwesomeIcon icon={faCaretRight} style={{ paddingRight: 20 }} />Fridges</p>
+        </Link>
         <Link to="/tv">
           <p className="prodf"><FontAwesomeIcon icon={faCaretRight} style={{ paddingRight: 20 }} />Tv</p>
-        </Link>
-        <Link to="/watch">
-          <p className="prodf"><FontAwesomeIcon icon={faCaretRight} style={{ paddingRight: 20 }} />Watches</p>
-        </Link>  <Link to="/furniture">
-          <p className="prodf"><FontAwesomeIcon icon={faCaretRight} style={{ paddingRight: 20 }} />Furniture</p>
         </Link>
         <Link to="/ac">
           <p className="prodf"><FontAwesomeIcon icon={faCaretRight} style={{ paddingRight: 20 }} />AC</p>
         </Link>
-        <Link to="/Admin">
-          <p className="prodf"><FontAwesomeIcon icon={faCaretRight} style={{ paddingRight: 20 }} />Kitchen</p>
-        </Link>
-        <Link to="/fridge">
-          <p className="prodf"><FontAwesomeIcon icon={faCaretRight} style={{ paddingRight: 20 }} />Fridges</p>
-        </Link>
+       
       </div>
       <div className="col-20">
         <h1>Address</h1>

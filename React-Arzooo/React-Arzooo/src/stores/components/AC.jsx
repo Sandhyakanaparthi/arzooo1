@@ -1,17 +1,25 @@
-import React, { useEffect } from "react";
-import { acData } from "../data/ac";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const AC = () => {
-  const firstFiveImages = acData.slice(0, 5);
+const AcPage = () => {
+  const [apiData, setApiData] = useState([]);
 
-  // useEffect(() => {
-  //   fetch('http://192.168.1.163:8093/admin/ac')
-  //   .then(response => response.json())
+  useEffect(() => {
+      fetchData();
+  }, []);
 
-  // },[])
-
-  // const data = response.map()
+  async function fetchData() {
+      try {
+          const response = await fetch('http://192.168.1.163:8093/getProducts');
+          if (!response.ok) {
+              throw new Error('Network response was not ok');
+          }
+          const data = await response.json();
+          setApiData(data);
+      } catch (error) {
+          console.error('Error fetching data:', error);
+      }
+  }
 
   return (
     <>
@@ -19,11 +27,13 @@ const AC = () => {
         <h2>Air Condition</h2>
       </div>
       <div className="proSection">
-        {firstFiveImages.map((item) => {
+        {apiData.map((item) => {
           return (
-            <div className="imgBox">
+            <div key={item.id} className="imgBox">
               <Link to='/ac'>
-                <img className="proImage" src={item.image} alt="" />
+                <div className="pageImg">
+                <img className="image2" src={`data:image/jpeg;base64,${item.image_url}`} alt={item.productName} />
+              </div>
               </Link>
             </div>
           );
@@ -33,4 +43,4 @@ const AC = () => {
   );
 };
 
-export default AC;
+export default AcPage;

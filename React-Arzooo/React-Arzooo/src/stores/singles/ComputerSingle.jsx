@@ -1,6 +1,6 @@
 import React from "react";
 import { computerData } from "../data/computers";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInr } from "@fortawesome/free-solid-svg-icons";
@@ -37,7 +37,9 @@ const ComputerSingle = () => {
             <p>{product.description}</p>
           </div>
           <button onClick={() => addToCart(product)}>Add to Cart</button><br />
+          <Link to="/computernow">
           <button onClick={() => addToCart(product)}>Buy Now</button>
+          </Link>
         </div>
       </div>
     </>

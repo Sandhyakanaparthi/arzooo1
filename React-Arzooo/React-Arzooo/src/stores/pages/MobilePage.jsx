@@ -3,6 +3,8 @@ import { mobileData } from '../data/mobiles'
 import Navbar from '../components/Navbar'
 import { Link } from 'react-router-dom'
 import Footer from '../components/Footer'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faIndianRupeeSign } from '@fortawesome/free-solid-svg-icons'
 
 const MobilePage = () => {
 
@@ -38,6 +40,10 @@ const MobilePage = () => {
                                 </Link>
                                 <div className="proModel">
                                     {item.company}, {item.model}
+                                </div>
+                                <div className="proModel2">
+                                    <FontAwesomeIcon icon={faIndianRupeeSign}/>
+                                    {item.price}
                                 </div>
                             </div>
                         )

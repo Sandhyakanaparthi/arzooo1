@@ -15,6 +15,13 @@ body {
     margin-left: 30px;
 }
 
+.proModel{
+    margin-top: 10px;
+}
+
+.proModel2{
+    margin: 15px 0 0 0;
+}
 .navbar-section {
     position: sticky;
     top: 0;
@@ -191,7 +198,7 @@ height: 40px;
 }
 
 .pageImg img:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
     transition: transform 0.3s ease-in-out;
 }
 
@@ -213,6 +220,11 @@ height: 40px;
 }
 
 .image {
+    width: 100%;
+}
+
+.image2{
+    height: 100%;
     width: 100%;
 }
 
@@ -582,7 +594,7 @@ label {
 .foot {
     background-color: #000B1C;
     color: white;
-    height: 360px;
+    height: 260px;
     width: 100%;
     display: flex;
     position: relative;
@@ -834,6 +846,7 @@ html {
     width: 78%;
     float: left;
     margin-left: 10px;
+    margin-top: 25px;
 }
 
 .col-5 {
@@ -849,6 +862,7 @@ html {
 .p {
     margin-top: 2px;
     margin-bottom: 2px;
+    padding-left: 50px;
 }
 
 .pa {
